@@ -1,0 +1,8 @@
+{
+	"cards": [
+		{ "id": 1, "content": "Simplifier la gestion des states", "column": 2 },
+		{ "id": 2, "content": "Enregistrer en BDD les cards", "column": 2 },
+		{ "id": 3, "content": "Faire la vaisselle", "column": 1 },
+		{ "id": 4, "content": "Faire à manger", "column": 1 }
+	]
+}

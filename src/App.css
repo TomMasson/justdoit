@@ -1,25 +1,8 @@
-.columns {
-	display: flex;
-	gap: 20px;
-}
 .motion {
 	height: 150px;
 	width: 150px;
 	border-radius: 15px;
 	background-color: #d50ce4;
-}
-
-.container {
-	background-color: #0d63f8;
-	width: 200px;
-	height: 200px;
-}
-
-.card {
-	background-color: #ff0088;
-	border-radius: 10px;
-	width: 100px;
-	height: 100px;
 }
 
 #root {
@@ -57,10 +40,6 @@
 	}
 }
 
-.card {
-	padding: 2em;
-}
-
 .read-the-docs {
-	color: #888;
+	color: #ff0707;
 }

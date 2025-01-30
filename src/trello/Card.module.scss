@@ -1,0 +1,18 @@
+.card {
+	background-color: #00b4d8;
+	border-radius: 10px;
+	width: 200px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+
+	&:active {
+		transform: rotate(5deg);
+	}
+
+	.text {
+		font-size: 16px;
+	}
+}
