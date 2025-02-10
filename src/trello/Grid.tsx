@@ -1,40 +1,46 @@
-import { LegacyRef, useRef } from "react";
-import { Card, useCards } from "./useCards";
+import { ColumnRefsProvider } from "@/context/columnRefs";
+import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
+import { fetchCards } from "@/reducer/cardReducer";
+import { RootState } from "@/reducer/store";
+import { Column } from "@/utils/types";
+import { createSelector } from "@reduxjs/toolkit";
+import { useEffect } from "react";
+import TaskColumn from "./columns/Column";
 import styles from "./Grid.module.scss";
 
-interface GridProps {
-	cols: Columns[];
-}
+const selectColumns = (state: RootState) => state.columns;
+const selectCardState = (state: RootState) => state.cardState;
 
-export interface Columns {
-	id: number;
-	title: string;
-	ref?: LegacyRef<HTMLDivElement>;
-}
+const selectGridData = createSelector(
+	[selectColumns, selectCardState],
+	(columns, cardState) => {
+		return {
+			columns,
+			loading: cardState.loading,
+			error: cardState.error,
+		};
+	}
+);
 
-const Grid = ({ cols }: GridProps) => {
-	const col1 = useRef(null);
-	const col2 = useRef(null);
-	const col3 = useRef(null);
+const Grid = () => {
+	const { columns, loading, error } = useAppSelector(selectGridData);
+	const dispatch = useAppDispatch();
 
-	// temporary static definition of the refs
-	cols[0].ref = col1;
-	cols[1].ref = col2;
-	cols[2].ref = col3;
-
-	const { generate, cards } = useCards({ cols });
+	useEffect(() => {
+		dispatch(fetchCards());
+	}, [dispatch]);
 
 	return (
-		<div className={styles.grid}>
-			{cols.map((column) => (
-				<div className={styles.column} key={column.id} ref={column.ref}>
-					<h2>{column.title}</h2>
-					{generate(
-						cards.filter((card: Card) => card.column === column.id)
-					)}
-				</div>
-			))}
-		</div>
+		<ColumnRefsProvider>
+			<h1>GRID</h1>
+			{loading && <div>Loading...</div>}
+			{error && <div className="error">{error}</div>}
+			<div className={styles.grid}>
+				{columns.map((column: Column) => (
+					<TaskColumn key={column.id} column={column}></TaskColumn>
+				))}
+			</div>
+		</ColumnRefsProvider>
 	);
 };
 

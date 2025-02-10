@@ -1,0 +1,31 @@
+@use "@/styles/variables.scss" as *;
+
+.cardContainer {
+	position: static;
+}
+.card {
+	background-color: $primary;
+	border-radius: 10px;
+	width: 200px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	border: solid 2px rgba(0, 0, 0, 0);
+	box-sizing: border-box;
+
+	&:hover {
+		border-color: $border;
+		cursor: pointer;
+	}
+
+	&:active {
+		rotate: 5deg;
+		border-color: rgba(0, 0, 0, 0);
+	}
+
+	.text {
+		font-size: 16px;
+	}
+}

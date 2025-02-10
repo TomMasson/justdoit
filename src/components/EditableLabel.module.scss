@@ -1,0 +1,26 @@
+@use "@/styles/variables.scss" as *;
+
+.form {
+	width: 100%;
+}
+.input {
+	border-radius: 3px;
+	border: $border;
+
+	&.titleModal {
+		font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+		font-size: 24px;
+		font-weight: 700;
+		padding: 5px;
+		line-height: 1.5;
+		width: 90%;
+	}
+
+	&.inputColumn {
+		padding: 5px;
+		margin-top: 10px;
+		line-height: 1.5rem;
+		width: 90%;
+		border-radius: 8px;
+	}
+}

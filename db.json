@@ -1,8 +1,39 @@
 {
-	"cards": [
-		{ "id": 1, "content": "Simplifier la gestion des states", "column": 2 },
-		{ "id": 2, "content": "Enregistrer en BDD les cards", "column": 2 },
-		{ "id": 3, "content": "Faire la vaisselle", "column": 1 },
-		{ "id": 4, "content": "Faire à manger", "column": 1 }
-	]
+  "cards": [
+    {
+      "id": "1",
+      "content": "Simplifier la gestion des states",
+      "column": "3"
+    },
+    {
+      "id": "4e14",
+      "content": "Implémenter un backend en firebase ou Mongo",
+      "column": "1"
+    },
+    {
+      "id": "ba96",
+      "content": "Ajouter des notifications post supression de carte",
+      "column": "1"
+    },
+    {
+      "id": "a96f",
+      "content": "Ajouter une \"position\" aux cartes",
+      "column": "1"
+    },
+    {
+      "id": "dd09",
+      "content": "Améliorer l'animation de changement des colonnes",
+      "column": "1"
+    },
+    {
+      "id": "dbc0",
+      "content": "V1",
+      "column": "2"
+    },
+    {
+      "id": "ed2f",
+      "content": "Pousser sur Git la V1.1",
+      "column": "3"
+    }
+  ]
 }
